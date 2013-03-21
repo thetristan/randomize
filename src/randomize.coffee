@@ -1,0 +1,27 @@
+{isObject, isNumber, isArray, isString} = require('underscore')
+
+module.exports = (arg) ->
+  return randomBoolean() unless arg?
+  return randomArrayMember(arg) if isArray(arg) or isString(arg)
+  return randomRange(arg) if isNumber(arg)
+  return randomProperty(arg) if isObject(arg)
+  null
+
+randomBoolean = ->
+  !!randomRange(0)
+
+randomArrayMember = (arr) ->
+  idx = randomRange(arr)
+  arr[idx]
+
+randomRange = (rangeOrArray) ->
+  rangeOrArray = rangeOrArray.length if isArray(rangeOrArray)
+  Math.floor(Math.random()*rangeOrArray)
+
+randomProperty = (obj) ->
+  keys = Object.keys(obj)
+  return null unless keys.length > 0
+  return obj[keys[0]] if keys.length == 1
+  idx = randomRange(keys)
+  obj[keys[idx]]
+
