@@ -10,16 +10,16 @@ module.exports = (args...) ->
   return randomProperty(arg) if isObject(arg)
   null
 
+randomRange = (rangeOrArray) ->
+  rangeOrArray = rangeOrArray.length if isArray(rangeOrArray)
+  Math.floor(Math.random()*rangeOrArray)
+
 randomBoolean = ->
-  !!randomRange(0)
+  !!!randomRange(2)
 
 randomArrayMember = (arr) ->
   idx = randomRange(arr)
   arr[idx]
-
-randomRange = (rangeOrArray) ->
-  rangeOrArray = rangeOrArray.length if isArray(rangeOrArray)
-  Math.floor(Math.random()*rangeOrArray)
 
 randomProperty = (obj) ->
   keys = Object.keys(obj)
