@@ -1,6 +1,9 @@
 {isObject, isNumber, isArray, isString} = require('underscore')
 
-module.exports = (arg) ->
+module.exports = (args...) ->
+  return randomArrayMember(args) if args.length > 1
+
+  arg = args[0]
   return randomBoolean() unless arg?
   return randomArrayMember(arg) if isArray(arg) or isString(arg)
   return randomRange(arg) if isNumber(arg)
