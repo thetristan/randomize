@@ -18,7 +18,7 @@ var arr = ['foo', 'bar', 'baz'];
 var randomMember = random(arr); // --> 'baz'
 
 // Return random member of arguments object
-var randomMember = random('qux', 1, 2); // --> 2
+var randomArg = random('qux', 1, 2); // --> 2
 
 // Return random property of an object
 var obj = {foo: 'bar', baz: 'qux', qux: 'foo', bar: 'baz'};
