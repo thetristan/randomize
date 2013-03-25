@@ -1,4 +1,4 @@
-{isObject, isNumber, isArray, isString} = require('underscore')
+{isObject, isNumber, isArray, isString, isFinite, isNaN} = require('underscore')
 
 module.exports = (args...) ->
   return randomArrayMember(args) if args.length > 1
@@ -6,12 +6,12 @@ module.exports = (args...) ->
   arg = args[0]
   return randomBoolean() unless arg?
   return randomArrayMember(arg) if isArray(arg) or isString(arg)
-  return randomRange(arg) if isNumber(arg)
+  return randomRange(arg) if isNumber(arg) and isFinite(arg) and !isNaN(arg)
   return randomProperty(arg) if isObject(arg)
   null
 
 randomRange = (rangeOrArray) ->
-  rangeOrArray = rangeOrArray.length if isArray(rangeOrArray)
+  rangeOrArray = rangeOrArray.length if isArray(rangeOrArray) or isString(rangeOrArray)
   Math.floor(Math.random()*rangeOrArray)
 
 randomBoolean = ->
