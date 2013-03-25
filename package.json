@@ -1,6 +1,6 @@
 {
   "name": "randomize",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Helper for generating random values in your code",
   "main": "index.js",
   "scripts": {
