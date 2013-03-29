@@ -11,7 +11,7 @@
     "url": "git@github.com:thetristan/randomize.git"
   },
   "author": "Tristan Blease",
-  "license": "BSD",
+  "license": "MIT",
   "dependencies": {
     "underscore": "~1.4.4"
   },
