@@ -25,7 +25,20 @@ describe 'randomize', ->
     fakeObject = a: 1, b: 2, c: 3, d: 4, e: 5, f: 6
     times ITERATIONS, ->
       result = r(fakeObject)
-      expect result in [1,2,3,4,5,6]
+      # expect result in [{1,2,3,4,5,6]
+
+      keys = Object.keys(result)
+      equal keys.length, 1
+      key = keys[0]
+      value = result[key]
+
+      switch key
+        when 'a' then equal value, 1
+        when 'b' then equal value, 2
+        when 'c' then equal value, 3
+        when 'd' then equal value, 4
+        when 'e' then equal value, 5
+        when 'f' then equal value, 6
 
   it 'returns a random argument when called with multiple arguments', ->
     fakeArray = ['foo', 'bar', 'baz', 'qux']

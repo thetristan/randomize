@@ -26,5 +26,8 @@ randomProperty = (obj) ->
   return null unless keys.length > 0
   return obj[keys[0]] if keys.length == 1
   idx = randomRange(keys)
-  obj[keys[idx]]
+  key = keys[idx]
+  result = {}
+  result[key] = obj[key]
+  result
 

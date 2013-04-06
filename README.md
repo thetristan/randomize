@@ -22,6 +22,6 @@ var randomArg = random('qux', 1, 2); // --> 2
 
 // Return random property of an object
 var obj = {foo: 'bar', baz: 'qux', qux: 'foo', bar: 'baz'};
-var randomProperty = random(obj); // --> 'foo'
+var randomProperty = random(obj); // --> {qux: 'foo'}
 ```
 
